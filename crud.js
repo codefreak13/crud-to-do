@@ -68,4 +68,5 @@ function removeTaskFromLS(value) {
       savedData.splice(index, 1)
     }
   });
+  localStorage.setItem('task', JSON.stringify(savedData))
 }
