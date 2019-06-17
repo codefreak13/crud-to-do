@@ -1,45 +1,71 @@
-const fName = document.querySelector('#fName');
-const lName = document.querySelector('#lName');
-const uName = document.querySelector('#uName');
-const mail = document.querySelector('#mail');
-const pWord = document.querySelector('#pWord');
-const sex = document.querySelector('#sex');
-const age = document.querySelector('#age');
+const taskInput = document.querySelector('#taskInput');
+const taskList = document.querySelector('#taskList');
+const taskBtn = document.querySelector('#taskBtn');
 
+taskBtn.addEventListener('click', fire);
+document.addEventListener('DOMContentLoaded', persistor);
+taskList.addEventListener('click', removeTask)
 
-const sForm = document.querySelector('#sForm');
+function fire() {
+  addTask();
+  saveTask();
 
+  taskInput.value = ''
+}
 
-sForm.addEventListener('submit', signUp);
+function addTask() {
+  let li = document.createElement('li');
+  li.className = 'pTask';
+  li.appendChild(document.createTextNode(taskInput.value));
+  let a = document.createElement('a');
+  let img = document.createElement('img');
+  img.setAttribute('src', 'images/cancel.svg');
+  img.className = 'delete';
+  a.appendChild(img);
+  li.appendChild(a);
+  taskList.appendChild(li)
+}
 
-
-
-function signUp(e) {
-  let pDetails = {
-    'first Name': fName.value,
-    'last Name': lName.value,
-    'user Name': uName.value,
-    email: mail.value,
-    password: pWord.value,
-    sex: sex.value,
-    age: age.value
-  }
-
-  let detailsArr = [];
-  if (fName.value == '' || lName.value == '' || uName.value == '' || mail.value == '' || pWord.value == '' || sex.value == '' || age.value == '') {
-    alert('Please fill in all the details')
+function saveTask() {
+  let taskArr = [];
+  if (localStorage.getItem('task') == null) {
+    taskArr.push(taskInput.value);
+    localStorage.setItem('task', JSON.stringify(taskArr))
   } else {
-    if (localStorage.getItem('details') == null) {
-      detailsArr.push(pDetails);
-      localStorage.setItem('details', JSON.stringify(detailsArr))
-    } else {
-      detailsArr = JSON.parse(localStorage.getItem('details'));
-      detailsArr.push(pDetails);
-      localStorage.setItem('details', JSON.stringify(detailsArr))
-    }
-
-    location.replace('login.html');
-    e.preventDefault()
+    taskArr = JSON.parse(localStorage.getItem('task'));
+    taskArr.push(taskInput.value);
+    localStorage.setItem('task', JSON.stringify(taskArr))
   }
+}
 
+function persistor() {
+  const savedData = JSON.parse(localStorage.getItem('task'));
+  savedData.forEach(element => {
+    let li = document.createElement('li');
+    li.className = 'pTask';
+    li.appendChild(document.createTextNode(element));
+    let a = document.createElement('a');
+    let img = document.createElement('img');
+    img.setAttribute('src', 'images/cancel.svg');
+    img.className = 'delete';
+    a.appendChild(img);
+    li.appendChild(a);
+    taskList.appendChild(li)
+  });
+}
+
+function removeTask(e) {
+  if (e.target.classList.contains('delete')) {
+    e.target.parentElement.parentElement.remove()
+  };
+  removeTaskFromLS(e.target.parentElement.parentElement)
+}
+
+function removeTaskFromLS(value) {
+  const savedData = JSON.parse(localStorage.getItem('task'));
+  savedData.forEach(function (element, index) {
+    if (element === value.textContent) {
+      savedData.splice(index, 1)
+    }
+  });
 }
