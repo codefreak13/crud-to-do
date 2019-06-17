@@ -5,6 +5,7 @@ const mail = document.querySelector('#mail');
 const pWord = document.querySelector('#pWord');
 const sex = document.querySelector('#sex');
 const age = document.querySelector('#age');
+const login = document.querySelector('#login')
 
 const sForm = document.querySelector('#sForm');
 
@@ -38,4 +39,10 @@ function signUp(e) {
     e.preventDefault()
   }
 
+}
+
+login.addEventListener('click', logIn);
+
+function logIn(){
+  location.replace('login.html')
 }
