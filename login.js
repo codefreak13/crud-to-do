@@ -7,24 +7,24 @@ lForm.addEventListener('submit', login);
 signUp.addEventListener('click', goSign);
 
 function loginCheck(a, b) {
-
   let savedData = JSON.parse(localStorage.getItem('details'));
-  console.log(savedData)
-  savedData.forEach(function (detail) {
-    if (a === detail['user Name'] && b === detail.password) {
-      location.replace('crud.html')
-    } else {
-      alert('correct inputs please!')
-    }
+
+  const matchArr = savedData.find(function (detail) {
+    return a === detail['user Name'] && b === detail.password
   })
+
+  if (matchArr) {
+     location.replace('crud.html')
+  } else {
+    alert('put in the right values')
+  }
 }
 
 function login(e) {
   let user = logUser.value;
   let pass = logPass.value;
-  loginCheck(user, pass)
- 
-  e.preventDefault()
+  loginCheck(user, pass);
+  e.preventDefault();
 }
 
 
