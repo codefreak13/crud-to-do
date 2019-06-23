@@ -4,8 +4,6 @@ body {
 }
 
 /* login */
-#loginBody {
-}
 
 #lForm {
    width: 40%;
@@ -23,7 +21,22 @@ body {
     width: 20rem;
     height: 2vh
   }
+
 /* crud */
+#crudMain {
+  width: 80%;
+  margin: 5rem;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  /* border: 1px solid  */
+}
+
+#taskList {
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-image: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .7)), url(images/dust.jpg);
+}
 
 #taskList img {
  height: .7rem;
@@ -31,17 +44,35 @@ body {
 }
 
 #taskList li {
+  text-align: center;
+  width: 80%;
  list-style: none;
  display: flex;
  justify-content: space-between;
- width: 20rem
+ /* width: 20rem */;
+ margin: 1rem;
+ margin-left: 7rem
 }
 
 #taskList li:nth-child(even) {
-color: white;
+color: blue;
 }
 
+#crudMain #btn {
+  position: absolute;
+  bottom: 0;
+  height: 5vh;
+  background: black;
+  color: red
+}
+
+#taskBtn {
+  background: green;
+  height: 5vh;
+  color: white
+}
 /* signup */
+
 #sForm {
  text-align: center;
  padding: 1rem;
