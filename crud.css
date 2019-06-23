@@ -1,16 +1,13 @@
 body {
  box-sizing: border-box;
- background: #a0a0a0;
- 
+ background: #a0a0a0; 
 }
 
 /* login */
 #loginBody {
-
-
 }
 
-  #lForm {
+#lForm {
    width: 40%;
    margin: auto auto;
    height: 40vh;
@@ -28,7 +25,6 @@ body {
   }
 /* crud */
 
-
 #taskList img {
  height: .7rem;
  width: .7rem
@@ -42,17 +38,42 @@ body {
 }
 
 #taskList li:nth-child(even) {
-color: rgb(35, 35, 180);
+color: white;
 }
-
 
 /* signup */
 #sForm {
- /* text-align: center */
+ text-align: center;
+ padding: 1rem;
+ /* border: 1px solid black; */
+ width: 60%;
+ margin: auto;
+ margin-top: 5rem
 }
 
-#login {
- position: absolute;
- bottom: 0;
- right: 0
+.sFormChildren {
+ margin: 1rem
 }
+
+#mail, #sex {
+  margin-right: -1.9rem
+}
+
+#age {
+  margin-right: -1.3rem
+}
+
+#span {
+  position: absolute;
+  top: 2rem;
+  right: 40rem;
+  display: flex;
+  justify-content: space-between;
+  width: 23rem;
+  color: rgb(11, 37, 93)
+ }
+ 
+ #span input {
+   background: rgb(11, 37, 93);
+   color: white
+ }

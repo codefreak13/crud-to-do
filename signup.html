@@ -11,24 +11,25 @@
 
 <body>
   <form id="sForm">
-    <h4>Signup Page</h4>
+    
     <label for="">First Name: </label>
-    <input type="text" placeholder="Please input your first name" id="fName"><br>
+    <input type="text" placeholder="Please input your first name" class="sFormChildren" id="fName"><br>
     <label for="">Last Name: </label>
-    <input type="text" placeholder="Please input your last name" id="lName"><br>
+    <input type="text" placeholder="Please input your last name" class="sFormChildren" id="lName"><br>
     <label for="">User Name: </label>
-    <input type="text" placeholder="Please input your user name" id="uName"><br>
+    <input type="text" placeholder="Please input your user name" id="uName" class="sFormChildren" ><br>
     <label for="">email:</label>
-    <input type="email" placeholder="Please input your email" id="mail"><br>
-    <label for="">Password: </label>
-    <input type="password" placeholder="Please input your preferred password" id="pWord"><br>
-    <label for="">Sex: </label>
-    <input type="text" placeholder="Please state your sex" id="sex"><br>
-    <label for="">Age:</label>
-    <input type="number" placeholder="Please input your age" id="age"><br>
-    <input type="submit" value="SIGN UP">
+    <input type="email" placeholder="Please input your email" id="mail" class="sFormChildren" ><br>
+    <label for=""  style="margin-left: .6rem">Password: </label>
+    <input type="password" placeholder="Please input your preferred password" id="pWord" class="sFormChildren" ><br>
+    <label for="" style="margin-left: 1rem">Sex: </label>
+    <input type="text" placeholder="Please state your sex" id="sex" class="sFormChildren" ><br>
+    <label for="" style="margin-left: -3rem">Age:</label>
+    <input type="number" placeholder="Please input your age" id="age" class="sFormChildren" ><br><br>
+    <input type="submit" value="SIGN UP"><br><br>
+    <span id="span"><p>If you already have an account</p> <input type="submit" value="LOGIN" id="login"></span> 
   </form>
-  <input type="submit" value="LOGIN" id="login">
+  
   <script src="signup.js"></script>
 </body>
 

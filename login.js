@@ -1,11 +1,11 @@
 const logUser = document.querySelector('#logUser');
 const logPass = document.querySelector('#logPass');
 const lForm = document.querySelector('#lf');
-const signUp = document.querySelector('#signup')
+// const signUp = document.querySelector('#signup')
 // const pFirstName = document.getElementById('pFirstName');
 
 lForm.addEventListener('click', login);
-signUp.addEventListener('click', goSign);
+// signUp.addEventListener('click', goSign);
 
 function loginCheck(a, b) {
   let savedData = JSON.parse(localStorage.getItem('details'));
@@ -50,7 +50,7 @@ let name;
   // } else {
   //   alert('put in the right values')
   }
-  console.log(name)
+  // console.log(name)
 }
 
 function login() {
@@ -60,6 +60,6 @@ function login() {
 }
 
 
-function goSign() {
-  location.replace('signup.html')
-}
+// function goSign() {
+//   location.replace('signup.html')
+// }
