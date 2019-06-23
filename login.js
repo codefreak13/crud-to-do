@@ -1,34 +1,35 @@
 const logUser = document.querySelector('#logUser');
 const logPass = document.querySelector('#logPass');
 const lForm = document.querySelector('#lf');
+// avatar = filterArr[0]['first Name'];
 // const signUp = document.querySelector('#signup')
 // const pFirstName = document.getElementById('pFirstName');
-
+// let filterArr;
+let avatar;
 lForm.addEventListener('click', login);
 // signUp.addEventListener('click', goSign);
 
 function loginCheck(a, b) {
   let savedData = JSON.parse(localStorage.getItem('details'));
-console.log(savedData.password, 'hdgxd')
-  const filterArr = savedData.filter(function(item){
+// console.log(savedData.password, 'hdgxd')
+   filterArr = savedData.filter(function(item){
     return a === item['user Name'] && b === item.password
   })
   // savedData.map(data => console.log(data['first Name'], 'paaaaa'))                                                           
-  console.log(filterArr, 'hhhh')
+  // console.log(filterArr, 'hhhh')
 
   // let firstName = filterArr.map(i => {
   //   i.password
   // })
 
   // console.log(firstName, 'kjdc')
-let name;
 
   if (filterArr.length>0) {
- name = filterArr[0]['first Name'];
+    avatar = filterArr[0]['first Name'];
  alert('Login Successful')
      // console.log(firstName)
       // pFirstName.textContent = firstName["first Name"]
-       location.replace('crud.html')
+      //  location.replace('crud.html')
     } else {
       alert('Username or Password incorrect!')
 
@@ -60,6 +61,12 @@ function login() {
 }
 
 
+console.log(avatar);
+
+
+
 // function goSign() {
 //   location.replace('signup.html')
 // }
+
+

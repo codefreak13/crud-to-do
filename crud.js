@@ -44,7 +44,13 @@ function saveTask() {
 }
 
 function persistor() {
-  const savedData = JSON.parse(localStorage.getItem('task'));
+  let savedData; 
+  if(localStorage.getItem('task') == null){
+    savedData = []
+  }else {
+    savedData = JSON.parse(localStorage.getItem('task'));
+  }
+  
   savedData.forEach(element => {
     taskList.style.display = 'block';
     let li = document.createElement('li');
@@ -62,7 +68,10 @@ function persistor() {
 
 function removeTask(e) {
   if (e.target.classList.contains('delete')) {
-    e.target.parentElement.parentElement.remove()
+    e.target.parentElement.parentElement.remove();
+    // if(taskList.textContent == ''){
+    //   taskList.style.display = 'none';
+    // }
   };
   removeTaskFromLS(e.target.parentElement.parentElement)
 }
@@ -92,3 +101,16 @@ signOut.addEventListener('click', out);
 function out(){
   location.replace('login.html')
 }
+
+const avatarName = document.querySelector('#avatarName');
+
+document.addEventListener('DOMContentLoaded', displayName);
+
+function displayName(){
+ avatarName.innerHTML = avatar;
+ 
+}
+
+console.log('haha', avatar)
+
+
