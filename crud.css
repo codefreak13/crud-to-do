@@ -1,4 +1,58 @@
-img {
+body {
+ box-sizing: border-box;
+ background: #a0a0a0;
+ 
+}
+
+/* login */
+#loginBody {
+
+
+}
+
+  #lForm {
+   width: 40%;
+   margin: auto auto;
+   height: 40vh;
+   padding: 3rem;                                                                                                                                                                                                                                                                                                                                                                                                        
+   margin-top: 20vh;
+   text-align: center;
+   border: 1px solid black;
+   border-radius: 1rem;
+   background: rgb(131, 128, 120);
+  }                                                                 
+
+  #lForm input {
+    width: 20rem;
+    height: 2vh
+  }
+/* crud */
+
+
+#taskList img {
  height: .7rem;
  width: .7rem
+}
+
+#taskList li {
+ list-style: none;
+ display: flex;
+ justify-content: space-between;
+ width: 20rem
+}
+
+#taskList li:nth-child(even) {
+color: rgb(35, 35, 180);
+}
+
+
+/* signup */
+#sForm {
+ /* text-align: center */
+}
+
+#login {
+ position: absolute;
+ bottom: 0;
+ right: 0
 }
