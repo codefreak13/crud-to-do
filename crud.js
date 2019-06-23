@@ -1,19 +1,25 @@
 const taskInput = document.querySelector('#taskInput');
 const taskList = document.querySelector('#taskList');
 const taskBtn = document.querySelector('#taskBtn');
+// const li = document.querySelector('.pTask');
+
 
 taskBtn.addEventListener('click', fire);
 document.addEventListener('DOMContentLoaded', persistor);
 taskList.addEventListener('click', removeTask)
 
 function fire() {
-  addTask();
-  saveTask();
+  
+    addTask()
+   saveTask();
 
-  taskInput.value = ''
+  taskInput.value = '';
 }
 
 function addTask() {
+  if(taskInput.value === ''){
+    alert('please input a task')
+    li.style.display = 'none';}
   let li = document.createElement('li');
   li.className = 'pTask';
   li.appendChild(document.createTextNode(taskInput.value));
@@ -69,4 +75,12 @@ function removeTaskFromLS(value) {
     }
   });
   localStorage.setItem('task', JSON.stringify(savedData))
+}
+
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', clearTask);
+
+function clearTask(){
+  taskList.innerHTML = '';
+  localStorage.removeItem('task')
 }

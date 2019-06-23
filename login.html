@@ -5,19 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="crud.css">
   <title>CRUD LOGIN</title>
 </head>
 
-<body>
-  <form id="lForm">
-    <label for="">User name</label>
-    <input type="text" id="logUser"><br>
-    <label for="">Password</label>
-    <input type="password" id="logPass"><br>
-    <input type="submit" value="LOGIN">
-  </form>
-  <input type="submit" value="SIGN UP?" id="signup">
+<body id="loginBody">
+  <div id="lForm">
+    <label for="" style="margin-top: 6rem">USER NAME</label><br><br>
+    <input type="text" id="logUser"><br><br><br>
+    <label for="">PASSWORD</label><br><br>
+    <input type="password" id="logPass"><br><br><br><br>
+    <!-- <p id="pFirstName"></p><br><br> -->
+    <button id="lf">LOGIN</button> <br><br>
+    <p>If you dont have an account already <a href="signup.html">SIGN UP<a></a></p> 
+  </div>
   <script src="login.js"></script>
+
 </body>
 
 </html>
