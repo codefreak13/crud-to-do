@@ -1,8 +1,6 @@
 const taskInput = document.querySelector('#taskInput');
 const taskList = document.querySelector('#taskList');
 const taskBtn = document.querySelector('#taskBtn');
-// const li = document.querySelector('.pTask');
-
 
 taskBtn.addEventListener('click', fire);
 document.addEventListener('DOMContentLoaded', persistor);
@@ -17,6 +15,7 @@ function fire() {
 }
 
 function addTask() {
+  taskList.style.display = 'block';
   if(taskInput.value === ''){
     alert('please input a task')
     li.style.display = 'none';}
@@ -47,6 +46,7 @@ function saveTask() {
 function persistor() {
   const savedData = JSON.parse(localStorage.getItem('task'));
   savedData.forEach(element => {
+    taskList.style.display = 'block';
     let li = document.createElement('li');
     li.className = 'pTask';
     li.appendChild(document.createTextNode(element));
@@ -81,6 +81,14 @@ const btn = document.querySelector('#btn');
 btn.addEventListener('click', clearTask);
 
 function clearTask(){
+  taskList.style.display = 'none';
   taskList.innerHTML = '';
   localStorage.removeItem('task')
+}
+
+const signOut = document.querySelector('#signOut');
+signOut.addEventListener('click', out);
+
+function out(){
+  location.replace('login.html')
 }

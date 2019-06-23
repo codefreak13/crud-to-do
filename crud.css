@@ -33,6 +33,7 @@ body {
 }
 
 #taskList {
+  display: none;
   border: 1px solid black;
   border-radius: 1rem;
   background-image: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .7)), url(images/dust.jpg);
@@ -54,9 +55,9 @@ body {
  margin-left: 7rem
 }
 
-#taskList li:nth-child(even) {
+/* #taskList li:nth-child(even) {
 color: blue;
-}
+} */
 
 #crudMain #btn {
   position: absolute;
