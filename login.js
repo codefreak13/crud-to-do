@@ -6,7 +6,7 @@ const lForm = document.querySelector('#lf');
 // avatar = filterArr[0]['first Name'];
 // const signUp = document.querySelector('#signup')
 // const pFirstName = document.getElementById('pFirstName');
-let avatar = 'ubanna';
+// let avatar;
 lForm.addEventListener('click', login);
 // signUp.addEventListener('click', goSign);
 // let filterArr;

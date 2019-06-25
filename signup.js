@@ -28,9 +28,7 @@ function signUp(e) {
   let detailsArr;
   if (fName.value == '' || lName.value == '' || uName.value == '' || mail.value == '' || pWord.value == '' || sex.value == '' || age.value == '') {
     alert('Please fill in all the details')
-
   } else if (localStorage.getItem('details') == null) {
-
     detailsArr = [];
     detailsArr.push(pDetails);
     localStorage.setItem('details', JSON.stringify(detailsArr));
@@ -49,8 +47,6 @@ function signUp(e) {
       location.replace('login.html');
     }
   }
-  
-
 }
 
 login.addEventListener('click', logIn);
