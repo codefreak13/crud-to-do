@@ -1,18 +1,19 @@
 const logUser = document.querySelector('#logUser');
 const logPass = document.querySelector('#logPass');
 const lForm = document.querySelector('#lf');
+// const avatarName = document.querySelector('#avatarName');
+
 // avatar = filterArr[0]['first Name'];
 // const signUp = document.querySelector('#signup')
 // const pFirstName = document.getElementById('pFirstName');
-// let filterArr;
-let avatar;
+let avatar = 'ubanna';
 lForm.addEventListener('click', login);
 // signUp.addEventListener('click', goSign);
-
+// let filterArr;
 function loginCheck(a, b) {
   let savedData = JSON.parse(localStorage.getItem('details'));
 // console.log(savedData.password, 'hdgxd')
-   filterArr = savedData.filter(function(item){
+  let filterArr = savedData.filter(function(item){
     return a === item['user Name'] && b === item.password
   })
   // savedData.map(data => console.log(data['first Name'], 'paaaaa'))                                                           
@@ -25,11 +26,11 @@ function loginCheck(a, b) {
   // console.log(firstName, 'kjdc')
 
   if (filterArr.length>0) {
-    avatar = filterArr[0]['first Name'];
- alert('Login Successful')
+  avatar = filterArr[0]['first Name'];
+  alert('Login Successful', avatar)
      // console.log(firstName)
       // pFirstName.textContent = firstName["first Name"]
-      //  location.replace('crud.html')
+       location.replace('crud.html')
     } else {
       alert('Username or Password incorrect!')
 
@@ -52,21 +53,20 @@ function loginCheck(a, b) {
   //   alert('put in the right values')
   }
   // console.log(name)
+  console.log(avatar)
 }
+// console.log(avatar)
 
 function login() {
   let user = logUser.value;
   let pass = logPass.value;
-  loginCheck(user, pass);
+ loginCheck(user, pass);
+ console.log(avatar)
+//  getAvatar(avatar)
+  // return avatar;
 }
 
-
-console.log(avatar);
-
-
-
-// function goSign() {
-//   location.replace('signup.html')
-// }
-
+function goSign() {
+  location.replace('signup.html')
+}
 

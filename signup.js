@@ -11,7 +11,10 @@ const sForm = document.querySelector('#sForm');
 
 sForm.addEventListener('submit', signUp);
 
+let savedData = JSON.parse(localStorage.getItem('details'));
+
 function signUp(e) {
+  e.preventDefault()
   let pDetails = {
     'first Name': fName.value,
     'last Name': lName.value,
@@ -22,27 +25,38 @@ function signUp(e) {
     age: age.value
   }
 
-  let detailsArr = [];
+  let detailsArr;
   if (fName.value == '' || lName.value == '' || uName.value == '' || mail.value == '' || pWord.value == '' || sex.value == '' || age.value == '') {
     alert('Please fill in all the details')
-  } else {
-    if (localStorage.getItem('details') == null) {
-      detailsArr.push(pDetails);
-      localStorage.setItem('details', JSON.stringify(detailsArr))
-    } else {
-      detailsArr = JSON.parse(localStorage.getItem('details'));
-      detailsArr.push(pDetails);
-      localStorage.setItem('details', JSON.stringify(detailsArr))
-    }
 
+  } else if (localStorage.getItem('details') == null) {
+
+    detailsArr = [];
+    detailsArr.push(pDetails);
+    localStorage.setItem('details', JSON.stringify(detailsArr));
     location.replace('login.html');
-    e.preventDefault()
+  } else if (localStorage.getItem('details')) {
+    detailsArr = JSON.parse(localStorage.getItem('details'));
+    let filterArr = detailsArr.filter((item) => {
+      return item['user Name'] === uName.value
+    });
+
+    if (filterArr.length > 0) {
+      alert('User name is already in use. Please choose another user name')
+    } else {
+      detailsArr.push(pDetails);
+      localStorage.setItem('details', JSON.stringify(detailsArr));
+      location.replace('login.html');
+    }
   }
+  
 
 }
 
 login.addEventListener('click', logIn);
 
-function logIn(){
+function logIn() {
   location.replace('login.html')
 }
+
+

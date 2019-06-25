@@ -104,13 +104,16 @@ function out(){
 
 const avatarName = document.querySelector('#avatarName');
 
-document.addEventListener('DOMContentLoaded', displayName);
+document.addEventListener('DOMContentLoaded', getAvatar());
 
-function displayName(){
+function getAvatar(){
+  // console.log(text)
+
  avatarName.innerHTML = avatar;
  
 }
 
-console.log('haha', avatar)
+
+// console.log('haha', npa)
 
 
