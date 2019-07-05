@@ -3,6 +3,7 @@ const logPass = document.querySelector('#logPass');
 const lForm = document.querySelector('#lf');
 
 lForm.addEventListener('click', login);
+let avatar;
 
 function loginCheck(a, b) {
 
@@ -13,7 +14,7 @@ function loginCheck(a, b) {
   })
 
   if (filterArr.length > 0) {
-    //  let avatar = filterArr[0]['first Name'];
+    avatar = filterArr[0]['first Name'];
     alert('Login Successful')
    return location.replace('crud.html')
   } else if(logUser.value === '' || logPass.value === '')
