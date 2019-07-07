@@ -7,50 +7,53 @@ document.addEventListener('DOMContentLoaded', persistor);
 taskList.addEventListener('click', removeTask)
 
 function fire() {
-  
-    addTask()
-   saveTask();
+
+  addTask()
+  saveTask();
 
   taskInput.value = '';
 }
 
 function addTask() {
-  taskList.style.display = 'block';
-  if(taskInput.value === ''){
-    alert('please input a task')
-    li.style.display = 'none';}
-  let li = document.createElement('li');
-  li.className = 'pTask';
-  li.appendChild(document.createTextNode(taskInput.value));
-  let a = document.createElement('a');
-  let img = document.createElement('img');
-  img.setAttribute('src', 'images/cancel.svg');
-  img.className = 'delete';
-  a.appendChild(img);
-  li.appendChild(a);
-  taskList.appendChild(li)
+  if (taskInput.value === '') {
+    alert('please input a task');
+  } else {
+    taskList.style.display = 'block';
+    let li = document.createElement('li');
+    li.className = 'pTask';
+    li.appendChild(document.createTextNode(taskInput.value));
+    let a = document.createElement('a');
+    let img = document.createElement('img');
+    img.setAttribute('src', 'images/cancel.svg');
+    img.className = 'delete';
+    a.appendChild(img);
+    li.appendChild(a);
+    taskList.appendChild(li)
+  }
 }
 
 function saveTask() {
   let taskArr = [];
-  if (localStorage.getItem('task') == null) {
-    taskArr.push(taskInput.value);
-    localStorage.setItem('task', JSON.stringify(taskArr))
-  } else {
-    taskArr = JSON.parse(localStorage.getItem('task'));
-    taskArr.push(taskInput.value);
-    localStorage.setItem('task', JSON.stringify(taskArr))
+  if (taskInput.value !== '') {
+    if (localStorage.getItem('task') == null) {
+      taskArr.push(taskInput.value);
+      localStorage.setItem('task', JSON.stringify(taskArr))
+    } else {
+      taskArr = JSON.parse(localStorage.getItem('task'));
+      taskArr.push(taskInput.value);
+      localStorage.setItem('task', JSON.stringify(taskArr))
+    }
   }
 }
 
 function persistor() {
-  let savedData; 
-  if(localStorage.getItem('task') == null){
+  let savedData;
+  if (localStorage.getItem('task') == null) {
     savedData = []
-  }else {
+  } else {
     savedData = JSON.parse(localStorage.getItem('task'));
   }
-  
+
   savedData.forEach(element => {
     taskList.style.display = 'block';
     let li = document.createElement('li');
@@ -69,11 +72,8 @@ function persistor() {
 function removeTask(e) {
   if (e.target.classList.contains('delete')) {
     e.target.parentElement.parentElement.remove();
-    // if(taskList.textContent == ''){
-    //   taskList.style.display = 'none';
-    // }
-  };
-  removeTaskFromLS(e.target.parentElement.parentElement)
+    removeTaskFromLS(e.target.parentElement.parentElement)
+  }; 
 }
 
 function removeTaskFromLS(value) {
@@ -89,7 +89,7 @@ function removeTaskFromLS(value) {
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', clearTask);
 
-function clearTask(){
+function clearTask() {
   taskList.style.display = 'none';
   taskList.innerHTML = '';
   localStorage.removeItem('task')
@@ -98,19 +98,11 @@ function clearTask(){
 const signOut = document.querySelector('#signOut');
 signOut.addEventListener('click', out);
 
-function out(){
+function out() {
   location.replace('login.html')
 }
 
-const avatarName = document.querySelector('#avatarName');
 
-document.addEventListener('DOMContentLoaded', displayName);
 
-function displayName(){
- avatarName.innerHTML = avatar;
- 
-}
-
-console.log('haha', avatar)
 
 
