@@ -102,7 +102,9 @@ function out() {
   location.replace('login.html')
 }
 
-
+const avatarNameNode = document.querySelector('#avatarName');
+ (function() { const [info] = JSON.parse(localStorage.getItem('details'));
+  avatarNameNode.textContent = `Hello, ${info['first Name']}`; })();
 
 
 
